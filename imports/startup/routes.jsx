@@ -12,7 +12,7 @@ export const renderRoutes = () => (
     <div>
       <Route exact
              path="/"
-             component={(props) => Meteor.userId ? (<Redirect to="/dashboard" />) : (<Home {...props} />)} />
+             component={(props) => Meteor.userId() ? (<Redirect to="/dashboard" />) : (<Home {...props} />)} />
       <Route path="/dashboard"
              component={(props) => Meteor.userId() ? (<Dashboard {...props} />) : (<Redirect to="/login" />)} />
       <Route path="/login"
