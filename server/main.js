@@ -40,7 +40,18 @@ function insertTestUsers() {
             }
           },
         ],
-        messages: []
+        messages: [
+          {
+            from: 'testUser',
+            body: 'Bye bye',
+            date: new Date().toLocaleString(),
+          },
+          {
+            from: null,
+            body: 'Bye bye 1',
+            date: new Date().toLocaleString(),
+          },
+        ]
       }
     }
 

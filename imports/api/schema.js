@@ -33,5 +33,6 @@ export const EmailContactMetadataSchema = new SimpleSchema({
 export const MessageSchema = new SimpleSchema({
   from: String,
   body: String,
+  date: String,
 });
 

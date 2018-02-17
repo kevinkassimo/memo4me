@@ -6,6 +6,7 @@ const createNewMessage = (body = '', from = null) => {
   return {
     body,
     from,
+    date: new Date().toISOString(),
   }
 };
 
