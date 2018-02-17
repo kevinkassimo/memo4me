@@ -60,46 +60,46 @@ export default class Home extends Component {
           <div className="row">
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center no-margin-top">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">devices</i></a></div>
-                <h3>Responsive Design</h3>
-                <p>mobile-ready design adopt to any device</p>
+                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <h3>Material UI Design</h3>
+                <p>Simple but effective UI/UX design</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center no-margin-top">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">card_travel</i></a></div>
-                <h3>Material UI Kit</h3>
-                <p>material design ui kit with tons of components</p>
+                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <h3>Message Reroute</h3>
+                <p>Smooth, instant and effective connection</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center no-margin-top">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">desktop_mac</i></a></div>
-                <h3>Web App</h3>
-                <p>single page application with React</p>
+                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <h3>Privacy Protection</h3>
+                <p>Substitute personal info with QR code</p>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">view_quilt</i></a></div>
-                <h3>Powerful Layout</h3>
-                <p> <span>multiple layouts to choose from</span><br/><span>and build your own</span></p>
+                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <h3>Effective Communication</h3>
+                <p>Organized and targeted communication between users</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">palette</i></a></div>
-                <h3>Multiple Themes</h3>
-                <p><span>18 predefined color schemes,</span><br/><span>light & dark themes</span></p>
+                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <h3>Multiple Platform</h3>
+                <p>Communication includes email, facebook messenger, and text</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">remove_red_eye</i></a></div>
-                <h3>High Resolution</h3>
-                <p>high resolution screens are<br/><span>well supported</span></p>
+                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <h3>Efficient Contact Management</h3>
+                <p>Deeper understanding of the background of your contacts</p>
               </div>
             </div>
           </div>
@@ -112,24 +112,25 @@ export default class Home extends Component {
         <div className="faq" id="faq">
         <div className="container">
           <header>
-            <h2 className="section-heading-underline">Why React</h2>
+            <h2 className="section-heading-underline">Why Memo4 Me</h2>
+            <p className="faq-a">Memo4 Me effectively manages the communication between attendees for various events, such as college career fairs, professional networking events, academic conferences, etc. By creating an event-specific QR code linked to Memo4 me users' personal emails or facebook, our users are able to initiate conversations, send and receive messages with other attendees for this specific events. Moreover, they can freely enable or disable the linkage between the event-specific QR code and their contact methods.</p>
           </header>
           <ul className="faq-list">
             <li className="scrollreveal">
-              <h4 className="faq-q">Develop Across All Platforms</h4>
-              <p className="faq-a">Learn one way to build applications with React and reuse your code and abilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop. Declarative views make your code more predictable and easier to debug.</p>
+              <h4 className="faq-q">Simplified Communication</h4>
+              <p className="faq-a">During an event, people are reluctant to give out their personal contact information to strangers. Many of them even create event-specific emails to receive messages from people they met in that event. Memo4 Me provides a simplified method to solve this problem by providing QR code linked to their personal contact information and they are disable the link once they are disinterested. </p>
             </li>
             <li className="scrollreveal">
-              <h4 className="faq-q">Declarative</h4>
-              <p className="faq-a">React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.<br></br><span>Declarative views make your code more predictable and easier to debug.</span></p>
+              <h4 className="faq-q">Personal information Protection</h4>
+              <p className="faq-a">Memo4 Me provides QR code as a substitute for users' personal contact information. In such way, users can choose to not disclose their personal information such as email address, and phone number during a event, but still receive messages from the people they met during that event.</p>
             </li>
             <li className="scrollreveal">
-              <h4 className="faq-q">Component-Based</h4>
-              <p className="faq-a">Build encapsulated components that manage their own state, then compose them to make complex UIs.<br></br><span>Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM. </span></p>
+              <h4 className="faq-q">Effective Contact Info Management</h4>
+              <p className="faq-a">By creating event-specific QR code linked to users' personal emails or facebook messenger, Memo4 Me simplifies the contact information management process for our users. Our users can easily recognize the their contacts' identities based on their personal information and the QR code their contacts possessed. In this way, Memo4 Me offers a comprehensive solution for its users to manage contacts for specific events </p>
             </li>
             <li className="scrollreveal">
-              <h4 className="faq-q">Learn Once, Write Anywhere</h4>
-              <p className="faq-a">We don't make assumptions about the rest of your technology stack, so you can develop new features in React without rewriting existing code.<br></br><span>React can also render on the server using Node and power mobile apps using React Native.</span></p>
+              <h4 className="faq-q">Multiplatform Message Reception</h4>
+              <p className="faq-a">Besides email notification to our user, Memo4 Me also provides linkages between QR code and Facebook Messengers and between QR code and text. Such multiplatform features enables fast and secure transmission of messages between Memo4 Me users using whatever platform they prefer.</p>
             </li>
           </ul>
         </div>
