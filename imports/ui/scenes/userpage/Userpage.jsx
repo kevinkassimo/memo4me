@@ -14,6 +14,7 @@ export default class Userpage extends Component {
       profileId: null,
       profile: null,
       avatarSrc: null,
+      hasUser: true,
     };
   }
 
@@ -21,6 +22,9 @@ export default class Userpage extends Component {
     Meteor.call('account.getUserByURL', this.props.match.params.customUrl, (err, result) => {
       if (err) {
         alert(`Cannot find user of that URL '${this.props.match.params.customUrl}'`);
+        this.setState({
+          hasUser: false,
+        });
         return;
       }
       this.setState({
@@ -61,20 +65,70 @@ export default class Userpage extends Component {
   //   Meteor.subscribe('allUserData', this.dataDidReady);
   // }
 
+  handleMessageSend = () => {
+    if (this.messageBodyElement.value.toString().trim().length <= 0) {
+      alert('You cannot send an empty message!');
+      return;
+    }
+
+    const {
+      profileId
+    } = this.state;
+
+    const messegeFrom = this.messageFromElement.value;
+    const messageBody = this.messageBodyElement.value;
+
+    Meteor.call('message.insert', profileId, messageBody, messageFrom, (err) => {
+      if (err) {
+        alert('There is a problem saving your message, please try again');
+        return;
+      }
+      Meteor.call('broadcast.send', profileId, messageBody, messegeFrom, (err) => {
+        if (err) {
+          alert('There is a problem sending your message, please try again');
+        } else {
+          alert('Message is sent successfully!');
+        }
+      })
+    });
+  };
+
 
   render() {
     const {
-      profile
+      profile,
+      hasUser,
     } = this.state;
 
     return (
       <div>
-        Userpage works!
+        { /* has user, but is still loading */ }
+        {(hasUser && !profile) &&
+          <h1>LOADING...</h1>
+        }
+
+        { /* does not have user */ }
+        {!hasUser &&
+          <h1>Ooops, this URL does not match any of our users...</h1>
+        }
+
         { profile &&
           <div>
-            <img src={this.state.avatarSrc} />
-            <p>{profile.name}</p>
+            <img src={this.state.avatarSrc} alt=""/>
+            <h1>Hi, this is {profile.name}!</h1>
             <p>{profile.bio}</p>
+            <p>Leave me a message below!</p>
+            <form onSubmit={this.handleMessageSend}>
+              <div>
+                <label htmlFor="from">From</label>
+                <input name="from" type="text" ref={el => this.messageFromElement = el} />
+              </div>
+              <div>
+                <label htmlFor="body">Message Body</label>
+                <textarea name="body" cols="30" rows="10" ref={el => this.messageBodyElement = el} />
+              </div>
+            </form>
+            <p>QRCode. Scan to visit this page</p>
             <QRCode value={window.location.href}/>
           </div>
         }
