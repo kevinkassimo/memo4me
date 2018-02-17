@@ -50,6 +50,8 @@ class Dashboard extends Component {
   }
 
   render() {
+    const currentUser = this.props.currentUser;
+
     return (
       <div>
         <button onClick={this.handleLogout}>Logout</button>
@@ -57,7 +59,9 @@ class Dashboard extends Component {
           <button onClick={() => this.setState({ shouldShowMessage: false })}>Profile</button>
           <button onClick={() => this.setState({ shouldShowMessage: true })}>History</button>
         </div>
-        {this.renderTab()}
+        {currentUser &&
+          this.renderTab()
+        }
       </div>
     );
   }
