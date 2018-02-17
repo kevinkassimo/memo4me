@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
-
+import { DashboardEmail } from './components/DashboardEmail';
 import Images from '/imports/api/image';
 
 
@@ -26,10 +26,9 @@ class Dashboard extends Component {
     })
   };
 
-  handleAddContact = e => {
-    e.preventDefault();
+  handleSubmitContact = value => {
 
-    Meteor.call('email.add', this.newEmailElement.value, (err) => {
+    Meteor.call('email.add', value, (err) => {
       if (err) {
         alert(err);
         return;
@@ -37,6 +36,27 @@ class Dashboard extends Component {
       alert('New email added');
     })
   };
+
+  handleRemoveContact = value => {
+    Meteor.call('email.remove', value, (err) => {
+      if (err) {
+        alert(err);
+        return;
+      }
+      alert('Email ' + value + ' removed');
+    })
+  }
+
+  handleToggleContact = (value, enable) => {
+    Meteor.call('email.setEnabled', value, enable, (err) => {
+      if (err) {
+        alert(err);
+        return;
+      }
+      alert('Email ' + value + ' set to ' + (enable ? 'enabled ' : 'disabled'));
+    })
+  }
+  
 
   handleUploadAvatar = e => {
     e.preventDefault();
@@ -77,23 +97,22 @@ class Dashboard extends Component {
       uploadInstance.start();
     }
   };
-
   render() {
     const {
       currentUser
     } = this.props;
 
+    const contacts = currentUser ? currentUser.profile.contacts : [];
+
     return (
       <div>
         Dashboard works!
         <button onClick={this.handleLogout}>Logout</button>
-        <div>
-          <h3>Add email</h3>
-          <form onSubmit={this.handleAddContact}>
-            <input type="text" name="email" ref={el => this.newEmailElement = el} />
-            <button type="submit">Submit</button>
-          </form>
-        </div>
+
+        <DashboardEmail addContact={this.handleSubmitContact} 
+        removeContact={this.handleRemoveContact} 
+        toggleContact={this.handleToggleContact}
+        contacts={contacts} />   
 
         <div>
           <h3>Update Image</h3>

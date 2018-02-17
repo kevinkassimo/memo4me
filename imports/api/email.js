@@ -53,5 +53,6 @@ if (Meteor.isServer) {
         { $pull: { 'profile.contacts': { 'metadata.address': address } } },
         { multi: true });
     },
+
   });
 }
