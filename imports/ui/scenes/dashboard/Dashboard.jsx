@@ -12,9 +12,24 @@ import { getEmailAddressesFromContacts } from '/imports/api/util';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      shouldShowMessage: false,
+    };
   }
 
-  render() {
+  handleLogout = e => {
+    Meteor.logout((err) => {
+      if (err) {
+        alert(err);
+        return;
+      }
+
+      this.props.history.push('/');
+    })
+  };
+
+  renderTab = () => {
     const {
       name,
       url: customUrl,
@@ -23,10 +38,26 @@ class Dashboard extends Component {
 
     const messages = this.props.currentUser.profile.messages;
 
+    const {
+      shouldShowMessage,
+    } = this.state;
+
+    if (!shouldShowMessage) {
+      return <DashboardSettings name={name} customUrl={customUrl} bio={bio} />;
+    } else {
+      return <DashboardHistory messages={messages} />;
+    }
+  }
+
+  render() {
     return (
       <div>
-        <DashboardSettings name={name} customUrl={customUrl} bio={bio} />
-        <DashboardHistory messages={messages}/>
+        <button onClick={this.handleLogout}>Logout</button>
+        <div>
+          <button onClick={() => this.setState({ shouldShowMessage: false })}>Profile</button>
+          <button onClick={() => this.setState({ shouldShowMessage: true })}>History</button>
+        </div>
+        {this.renderTab()}
       </div>
     );
   }

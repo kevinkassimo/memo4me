@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Accounts } from 'meteor/accounts-base';
+import QRCode from 'qrcode.react';
 
 import Images from '/imports/api/image';
 
@@ -25,17 +26,6 @@ export default class DashboardSettings extends Component {
     }
      */
   }
-
-  handleLogout = e => {
-    Meteor.logout((err) => {
-      if (err) {
-        alert(err);
-        return;
-      }
-
-      this.props.history.push('/');
-    })
-  };
 
   handleAddContact = e => {
     e.preventDefault();
@@ -125,24 +115,32 @@ export default class DashboardSettings extends Component {
   };
 
   renderProfileSettings = () => {
+    const {
+      name,
+      bio,
+      customUrl,
+    } = this.state;
+
     return (
       <div>
         <h3>Profile Settings</h3>
         <form onSubmit={this.handleUpdateProfile}>
           <div>
             <label htmlFor="name">Name: </label>
-            <input type="text" value={this.state.name} onChange={e => this.setState({ name: e.target.value })}/>
+            <input type="text" value={name} onChange={e => this.setState({ name: e.target.value })}/>
           </div>
           <div>
             <label htmlFor="bio">Bio: </label>
-            <textarea name="bio" cols="30" rows="10" value={this.state.name} onChange={e => this.setState({ bio: e.target.value })} />
+            <textarea name="bio" cols="30" rows="10" value={bio} onChange={e => this.setState({ bio: e.target.value })} />
           </div>
           <div>
             <label htmlFor="customUrl">Custom URL: </label>
-            <input type="text" value={this.state.customUrl} onChange={e => this.setState({ customUrl: e.target.value })}/>
+            <input type="text" value={customUrl} onChange={e => this.setState({ customUrl: e.target.value })}/>
           </div>
           <button type="submit">Update</button>
         </form>
+        <p>Generated URL QR Code, scan to visit your page</p>
+        <QRCode value={`${window.location.host}/user/${customUrl}`}/>
       </div>
     )
   }
@@ -154,7 +152,6 @@ export default class DashboardSettings extends Component {
 
     return (
       <div>
-        <button onClick={this.handleLogout}>Logout</button>
         {this.renderAddImage()}
         {this.renderProfileSettings()}
       </div>

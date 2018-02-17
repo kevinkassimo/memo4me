@@ -20,7 +20,7 @@ export default class Userpage extends Component {
 
   componentDidMount() {
     Meteor.call('account.getUserByURL', this.props.match.params.customUrl, (err, result) => {
-      if (err) {
+      if (err || !result) {
         alert(`Cannot find user of that URL '${this.props.match.params.customUrl}'`);
         this.setState({
           hasUser: false,
@@ -65,7 +65,9 @@ export default class Userpage extends Component {
   //   Meteor.subscribe('allUserData', this.dataDidReady);
   // }
 
-  handleMessageSend = () => {
+  handleMessageSend = e => {
+    e.preventDefault();
+
     if (this.messageBodyElement.value.toString().trim().length <= 0) {
       alert('You cannot send an empty message!');
       return;
@@ -75,7 +77,7 @@ export default class Userpage extends Component {
       profileId
     } = this.state;
 
-    const messegeFrom = this.messageFromElement.value;
+    const messageFrom = this.messageFromElement.value;
     const messageBody = this.messageBodyElement.value;
 
     Meteor.call('message.insert', profileId, messageBody, messageFrom, (err) => {
@@ -83,11 +85,13 @@ export default class Userpage extends Component {
         alert('There is a problem saving your message, please try again');
         return;
       }
-      Meteor.call('broadcast.send', profileId, messageBody, messegeFrom, (err) => {
+      Meteor.call('broadcast.send', profileId, messageBody, messageFrom, (err) => {
         if (err) {
           alert('There is a problem sending your message, please try again');
         } else {
           alert('Message is sent successfully!');
+          this.messageBodyFrom.value = "";
+          this.messageBodyElement.value = "";
         }
       })
     });
@@ -114,7 +118,7 @@ export default class Userpage extends Component {
 
         { profile &&
           <div>
-            <img src={this.state.avatarSrc} alt=""/>
+            <img src={this.state.avatarSrc} alt="User-Image"/>
             <h1>Hi, this is {profile.name}!</h1>
             <p>{profile.bio}</p>
             <p>Leave me a message below!</p>
@@ -127,6 +131,7 @@ export default class Userpage extends Component {
                 <label htmlFor="body">Message Body</label>
                 <textarea name="body" cols="30" rows="10" ref={el => this.messageBodyElement = el} />
               </div>
+              <button type="submit">Submit</button>
             </form>
             <p>QRCode. Scan to visit this page</p>
             <QRCode value={window.location.href}/>

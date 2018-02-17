@@ -8,6 +8,7 @@ import '/imports/api/email';
 import '/imports/api/image';
 import '/imports/api/url';
 import '/imports/api/message';
+import '/imports/api/broadcast';
 
 if (Meteor.isServer) {
 
