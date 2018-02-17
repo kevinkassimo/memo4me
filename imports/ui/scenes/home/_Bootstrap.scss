@@ -49,7 +49,9 @@ a {
 
 a:active,
 a:hover {
-  outline-width: 0; }
+  outline-width: 0;
+  cursor: pointer; 
+}
 
 abbr[title] {
   border-bottom: none;
