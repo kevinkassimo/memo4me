@@ -12,11 +12,11 @@ export const renderRoutes = () => (
     <div>
       <Route exact
              path="/"
-             component={(props) => Meteor.user() ? (<Redirect to="/dashboard" />) : (<Home {...props} />)} />
+             component={(props) => Meteor.userId ? (<Redirect to="/dashboard" />) : (<Home {...props} />)} />
       <Route path="/dashboard"
-             component={(props) => Meteor.user() ? (<Dashboard {...props} />) : (<Redirect to="/login" />)} />
+             component={(props) => Meteor.userId() ? (<Dashboard {...props} />) : (<Redirect to="/login" />)} />
       <Route path="/login"
-             component={(props) => Meteor.user() ? (<Dashboard {...props} />) : (<Login {...props} />)}/>
+             component={(props) => Meteor.userId() ? (<Dashboard {...props} />) : (<Login {...props} />)}/>
       <Route path="/user/:customUrl" component={(props) => <Userpage {...props} /> } />
     </div>
   </BrowserRouter>

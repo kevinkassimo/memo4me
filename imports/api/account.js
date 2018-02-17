@@ -42,7 +42,9 @@ if (Meteor.isServer) {
         throw new Meteor.Error('Email must be of email format');
       }
 
-      if (Meteor.users.findOne({ 'profile.url': url })) {
+      if (Meteor.users.findOne({ 'profile.url': url })
+        || Meteor.users.findOne({ 'email.address': email })
+        || Meteor.users.findOne({ 'username': username })) {
         throw new Meteor.Error('URL has been used by someone else');
       }
 
