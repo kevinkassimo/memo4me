@@ -30,4 +30,12 @@ const serverBroadcastEmail = function serverBroadcastEmail(emailContacts) {
   const emails = emailContacts.map(contact => contact.metadata.address);
 
   // TODO: implement me
+};
+
+if (Meteor.isServer) {
+  Meteor.methods({
+    'broadcast.send': function send(userId, body = '', from = null) {
+      // send
+    }
+  })
 }
