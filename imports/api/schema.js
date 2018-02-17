@@ -30,9 +30,12 @@ export const EmailContactMetadataSchema = new SimpleSchema({
   address: String
 });
 
+export const TextContactMetadataSchema = new SimpleSchema({
+  number: String
+});
+
 export const MessageSchema = new SimpleSchema({
   from: String,
   body: String,
   date: String,
 });
-
