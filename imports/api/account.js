@@ -55,6 +55,42 @@ if (Meteor.isServer) {
       return Accounts.createUser(userObject);
     },
 
+    'account.update': function create({ name, bio, url }) {
+      if (name) {
+        check(name, String);
+
+        Meteor.users.update({ _id: this.userId }, {
+          $set: {
+            'profile.name': name,
+          },
+        });
+      }
+
+      if (bio) {
+        check(bio, String);
+        Meteor.users.update({ _id: this.userId }, {
+          $set: {
+            'profile.bio': bio,
+          },
+        });
+      }
+
+
+      if (url) {
+        check(url, String);
+
+        if (Meteor.users.findOne({ _id: { $ne: this.userId } ,'profile.url': url })) {
+          throw new Meteor.Error(`This URL '${url}' has been used by another user`);
+        }
+
+        Meteor.users.update({ _id: this.userId }, {
+          $set: {
+            'profile.url': url,
+          },
+        });
+      }
+    },
+
     // Get User by URL
     'account.getUserByURL': function getUserByURL(url) {
       check(url, String);
