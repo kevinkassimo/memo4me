@@ -5,6 +5,7 @@ import { Accounts } from 'meteor/accounts-base';
 import QRCode from 'qrcode.react';
 
 import Images from '/imports/api/image';
+import DashboardEmail from './DashboardEmail';
 
 export default class DashboardSettings extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ export default class DashboardSettings extends Component {
       customUrl: '',
       name: '',
       bio: '',
+      contacts: [],
     }
      */
   }
@@ -36,6 +38,36 @@ export default class DashboardSettings extends Component {
         return;
       }
       alert('New email added');
+    })
+  };
+
+  handleSubmitContact = value => {
+    Meteor.call('email.add', value, (err) => {
+      if (err) {
+        alert(err);
+        return;
+      }
+      alert('New email added');
+    })
+  };
+
+  handleRemoveContact = value => {
+    Meteor.call('email.remove', value, (err) => {
+      if (err) {
+        alert(err);
+        return;
+      }
+      alert('Email ' + value + ' removed');
+    })
+  };
+
+  handleToggleContact = (value, enable) => {
+    Meteor.call('email.setEnabled', value, enable, (err) => {
+      if (err) {
+        alert(err);
+        return;
+      }
+      alert('Email ' + value + ' set to ' + (enable ? 'enabled ' : 'disabled'));
     })
   };
 
@@ -97,6 +129,18 @@ export default class DashboardSettings extends Component {
     })
   };
 
+  renderManageContact = () => {
+    const {
+      contacts
+    } = this.props;
+    return (
+      <DashboardEmail addContact={this.handleSubmitContact}
+                      removeContact={this.handleRemoveContact}
+                      toggleContact={this.handleToggleContact}
+                      contacts={contacts} />
+    );
+  };
+
   renderAddImage = () => {
     const {
       isAvatarUploading,
@@ -152,6 +196,7 @@ export default class DashboardSettings extends Component {
 
     return (
       <div>
+        {this.renderManageContact()}
         {this.renderAddImage()}
         {this.renderProfileSettings()}
       </div>

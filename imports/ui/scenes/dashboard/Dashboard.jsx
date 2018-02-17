@@ -34,6 +34,7 @@ class Dashboard extends Component {
       name,
       url: customUrl,
       bio,
+      contacts,
     } = this.props.currentUser.profile;
 
     const messages = this.props.currentUser.profile.messages;
@@ -43,7 +44,7 @@ class Dashboard extends Component {
     } = this.state;
 
     if (!shouldShowMessage) {
-      return <DashboardSettings name={name} customUrl={customUrl} bio={bio} />;
+      return <DashboardSettings name={name} customUrl={customUrl} bio={bio} contacts={contacts} />;
     } else {
       return <DashboardHistory messages={messages} />;
     }
