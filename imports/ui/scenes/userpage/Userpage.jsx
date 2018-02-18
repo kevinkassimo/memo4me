@@ -87,10 +87,11 @@ export default class Userpage extends Component {
       }
       Meteor.call('broadcast.send', profileId, messageBody, messageFrom, (err) => {
         if (err) {
+          alert(err);
           alert('There is a problem sending your message, please try again');
         } else {
           alert('Message is sent successfully!');
-          this.messageBodyFrom.value = "";
+          this.messageFromElement.value = "";
           this.messageBodyElement.value = "";
         }
       })

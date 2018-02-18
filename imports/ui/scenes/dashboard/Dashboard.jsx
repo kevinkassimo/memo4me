@@ -34,6 +34,7 @@ class Dashboard extends Component {
       name,
       url: customUrl,
       bio,
+      contacts,
     } = this.props.currentUser.profile;
 
     const messages = this.props.currentUser.profile.messages;
@@ -43,13 +44,15 @@ class Dashboard extends Component {
     } = this.state;
 
     if (!shouldShowMessage) {
-      return <DashboardSettings name={name} customUrl={customUrl} bio={bio} />;
+      return <DashboardSettings name={name} customUrl={customUrl} bio={bio} contacts={contacts} />;
     } else {
       return <DashboardHistory messages={messages} />;
     }
   }
 
   render() {
+    const currentUser = this.props.currentUser;
+
     return (
       <div>
         <button onClick={this.handleLogout}>Logout</button>
@@ -57,7 +60,9 @@ class Dashboard extends Component {
           <button onClick={() => this.setState({ shouldShowMessage: false })}>Profile</button>
           <button onClick={() => this.setState({ shouldShowMessage: true })}>History</button>
         </div>
-        {this.renderTab()}
+        {currentUser &&
+          this.renderTab()
+        }
       </div>
     );
   }
