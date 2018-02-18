@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import ContactType from '../../../../constants/contact-types';
 
 function getContent(p) {
