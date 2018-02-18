@@ -4,5 +4,8 @@ export const getEmailContacts = contacts => contacts.filter(contact => contact.t
 
 export const getEmailAddressesFromContacts = contacts => getEmailContacts(contacts).map(contact => contact.metadata.address);
 
+export const isTextNumber = number => /[0-9]{10}/.test(number);
+
+
 export const isEmailAddress = address =>
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(address);

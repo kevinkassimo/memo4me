@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import ContactType from '../../../../constants/contact-types';
 
 function getContent(p) {
-  return (p.type === "email") ? p.metadata.address : "";
+  return p.metadata.address;
 }
 
 function DashBoardEntry(props) {
@@ -28,11 +29,12 @@ export default class DashboardEmail extends Component {
   constructor(props) {
     super(props);
     // props: addContact, emails
-    this.state = {value: '', type: 'email'};
+    this.state = {value: '', type: ContactType.EMAIL};
   }
 
   handleAdd() {
-    this.props.addContact(this.state.value);
+    alert('About to add an entry of type ' + this.state.type);
+    this.props.addContact(this.state.value, this.state.type);
     this.setState({value : ''});
   }
 
@@ -42,6 +44,10 @@ export default class DashboardEmail extends Component {
 
   handleRemove = (id) => {
     this.props.removeContact(id);
+  }
+
+  onChange = (e) => {
+    this.setState({type: e.target.value});
   }
 
   render() {
@@ -61,8 +67,14 @@ export default class DashboardEmail extends Component {
         <ul>
           {listItems}
         </ul>
-        <input type="text" name="email" value={this.state.value}
+
+        <input type="text" name="text" value={this.state.value}
                onChange={ (e) => this.setState({value: e.target.value})} />
+
+        <select onChange={this.onChange}> 
+          <option value={ContactType.EMAIL}>Email</option>
+          <option value={ContactType.TEXT}> Text</option>
+        </select>
 
         <button onClick={this.handleAdd.bind(this)}> Add Contact </button>
       </div>;

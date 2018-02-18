@@ -4,7 +4,7 @@ import { Accounts } from 'meteor/accounts-base';
 
 import '/imports/api/user';
 import '/imports/api/account';
-import '/imports/api/email';
+import '/imports/api/contact';
 import '/imports/api/image';
 import '/imports/api/url';
 import '/imports/api/message';
