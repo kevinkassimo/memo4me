@@ -9,6 +9,14 @@ import DashboardSettings from './components/DashboardSettings';
 
 import { getEmailAddressesFromContacts } from '/imports/api/util';
 
+class Content extends Component {
+
+}
+
+class NavBar extends Component {
+
+}
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -60,16 +68,16 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <button onClick={this.handleLogout}>Logout</button>
-
-        <div>
-          <button onClick={() => this.setState({ shouldShowMessage: false })}>Profile</button>
-          <button onClick={() => this.setState({ shouldShowMessage: true })}>History</button>
-
+        <div className='navBar'>
+          <button className='navBarItem' onClick={() => this.setState({ shouldShowMessage: false })}>Profile</button>
+          <button className='navBarItem' onClick={() => this.setState({ shouldShowMessage: true })}>History</button>
+          <button className='navBarItem' id='logout' onClick={this.handleLogout}>Logout</button>
         </div>
-        {currentUser &&
-          this.renderTab()
-        }
+        <div className='content'>
+          {currentUser &&
+            this.renderTab()
+          }
+        </div>
       </div>
     );
   }
