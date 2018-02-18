@@ -48,7 +48,7 @@ export default class Home extends Component {
         <div className="main-content">
           <div className="hero" id="hero">
             <div className="container">
-              <h2>Memo 4 Me</h2>
+              <h2 style={{fontSize: '5em'}}>Memo 4 Me</h2>
               <p>Instantly connect with people while retaining privacy</p><a className="btn btn-primary btn-cta btn-lg btn-raised ui-wave" target="_blank" onClick={this.handleLogin}>Login</a>
             </div>
             <div className="img scrollreveal"><img src="/images/home_placeholder.png" /></div>

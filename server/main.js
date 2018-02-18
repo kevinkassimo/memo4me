@@ -62,42 +62,42 @@ function insertTestUsers() {
 
 Meteor.startup(() => {
   // code to run on server at startup
-  Meteor.users.remove({});
-  insertTestUsers();
+  // Meteor.users.remove({});
+  // nsertTestUsers();
 
-  Accounts.createUser({
-    username: 'kassimo',
-    email: 'kevinkassimo@gmail.com',
-    password: '123',
-    profile: {
-      name: 'Kevin Qian',
-      bio: 'BLAH',
-      avatar: null,
-      url: 'kevin',
-      contacts: [
-        {
-          type: `email`,
-          enabled: true,
-          metadata: {
-            address: `kevinkassimo@gmail.com`,
-          },
-        },
-        {
-          type: `email`,
-          enabled: true,
-          metadata: {
-            address: `henrywcj@outlook.com`,
-          },
-        },
-        {
-          type: `email`,
-          enabled: false,
-          metadata: {
-            address: `jackie19970410@gmail.com`,
-          },
-        },
-      ],
-      messages: [],
-    }
-  })
+  // Accounts.createUser({
+  //   username: 'kassimo',
+  //   email: 'kevinkassimo@gmail.com',
+  //   password: '123',
+  //   profile: {
+  //     name: 'Kevin Qian',
+  //     bio: 'BLAH',
+  //     avatar: null,
+  //     url: 'kevin',
+  //     contacts: [
+  //       {
+  //         type: `email`,
+  //         enabled: true,
+  //         metadata: {
+  //           address: `kevinkassimo@gmail.com`,
+  //         },
+  //       },
+  //       {
+  //         type: `email`,
+  //         enabled: true,
+  //         metadata: {
+  //           address: `henrywcj@outlook.com`,
+  //         },
+  //       },
+  //       {
+  //         type: `email`,
+  //         enabled: false,
+  //         metadata: {
+  //           address: `jackie19970410@gmail.com`,
+  //         },
+  //       },
+  //     ],
+  //     messages: [],
+  //   }
+  // })
 });
