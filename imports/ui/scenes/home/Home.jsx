@@ -115,24 +115,24 @@ export default class Home extends Component {
         <div className="container">
           <header>
             <h2 className="section-heading-underline">Why Memo4 Me</h2>
-            <p className="faq-a">Memo4 Me effectively manages the communication between attendees for various events, such as college career fairs, professional networking events, academic conferences, etc. By creating an event-specific QR code linked to Memo4 me users' personal emails or facebook, our users are able to initiate conversations, send and receive messages with other attendees for this specific events. Moreover, they can freely enable or disable the linkage between the event-specific QR code and their contact methods.</p>
+            <p className="faq-a">Memo4 Me effectively faciliates the communication between attendees for various events, such as college career fairs, professional networking events, academic conferences, etc. By creating an event-specific personal QR code linked to Memo 4 me users' personal emails or facebook, our users are able to initiate conversations, send and receive messages with other attendees for this specific events. Moreover, they can freely enable or disable the linkage between the event-specific personal QR code and their contact methods.</p>
           </header>
           <ul className="faq-list">
             <li className="scrollreveal">
               <h4 className="faq-q">Simplified Communication</h4>
-              <p className="faq-a">During an event, people are reluctant to give out their personal contact information to strangers. Many of them even create event-specific emails to receive messages from people they met in that event. Memo4 Me provides a simplified method to solve this problem by providing QR code linked to their personal contact information and they are disable the link once they are disinterested. </p>
+              <p className="faq-a">During an event, people are reluctant to give out their personal contact information to strangers. Many of them even create event-specific emails to receive messages from people they met in that event. Memo 4 Me provides a simplified method to solve this problem by providing QR code linked to their personal contact information and they are disable the link once they are disinterested. </p>
             </li>
             <li className="scrollreveal">
               <h4 className="faq-q">Personal information Protection</h4>
-              <p className="faq-a">Memo4 Me provides QR code as a substitute for users' personal contact information. In such way, users can choose to not disclose their personal information such as email address, and phone number during a event, but still receive messages from the people they met during that event.</p>
+              <p className="faq-a">Memo 4 Me provides QR code as a substitute for users' personal contact information. In such way, users can choose to not disclose their personal information such as email address, and phone number during a event, but still receive messages from the people they met during that event.</p>
             </li>
             <li className="scrollreveal">
               <h4 className="faq-q">Effective Contact Info Management</h4>
-              <p className="faq-a">By creating event-specific QR code linked to users' personal emails or facebook messenger, Memo4 Me simplifies the contact information management process for our users. Our users can easily recognize the their contacts' identities based on their personal information and the QR code their contacts possessed. In this way, Memo4 Me offers a comprehensive solution for its users to manage contacts for specific events </p>
+              <p className="faq-a">By creating event-specific personal QR code linked to users' personal emails or text, Memo 4 Me simplifies the contact information management process for our users. Our users can easily recognize the their contacts' identities based on their personal information and the QR code their contacts possessed. In this way, Memo 4 Me offers a comprehensive solution for its users to manage contacts for specific events </p>
             </li>
             <li className="scrollreveal">
               <h4 className="faq-q">Multiplatform Message Reception</h4>
-              <p className="faq-a">Besides email notification to our user, Memo4 Me also provides linkages between QR code and Facebook Messengers and between QR code and text. Such multiplatform features enables fast and secure transmission of messages between Memo4 Me users using whatever platform they prefer.</p>
+              <p className="faq-a">Besides email notification to our user, Memo 4 Me also provides linkages between QR code and Facebook Messengers and between QR code and text. Such multiplatform features enables fast and secure transmission of messages between Memo 4 Me users using whatever platform they prefer.</p>
             </li>
           </ul>
         </div>
