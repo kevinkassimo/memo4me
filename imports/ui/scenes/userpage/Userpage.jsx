@@ -115,29 +115,55 @@ export default class Userpage extends Component {
         {!hasUser &&
           <h1>Ooops, this URL does not match any of our users...</h1>
         }
-
+        {/*this.state.avatarSrc*/}
         { profile &&
           <div>
-            <img src={this.state.avatarSrc} alt="User-Image"/>
-            <h1>Hi, this is {profile.name}!</h1>
-            <p>{profile.bio}</p>
-            <p>Leave me a message below!</p>
-            <form onSubmit={this.handleMessageSend}>
-              <div>
+            <div className="main-content">
+              <div className="hero profile" id="hero">
+                <img src= "https://t3.ftcdn.net/jpg/00/64/67/80/240_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"  alt="User-Image"/>
+                <h2>Greetings, this is {profile.name}!</h2>
+                <p>{profile.bio}</p>
+              </div>
+            </div>
+            <div className="message-board">
+              <h3>Leave me a message below!</h3>
+              <div className="paper">
+              <form onSubmit={this.handleMessageSend} className="paper-text">
+
+              <div className="group">
+                <div className="center-wrapper">      
+                  <input name="from" type="text" ref={el => this.messageFromElement = el} required/>
+                  <span className="highlight"></span>
+                  <span className="bar"></span>
+                  <label htmlFor="from">From:</label>
+                </div>
+              </div>
+              <br/>
+              <div className="group">      
+                <textarea cols="30" rows="3" name="body" type="textarea" ref={el => this.messageBodyElement = el} required/>
+                <span className="highlight"></span>
+                <span className="bar"></span>
+                <label htmlFor="body">Message:</label>
+              </div>
+
+              {/*<div>
                 <label htmlFor="from">From</label>
                 <input name="from" type="text" ref={el => this.messageFromElement = el} />
               </div>
               <div>
                 <label htmlFor="body">Message Body</label>
                 <textarea name="body" cols="30" rows="10" ref={el => this.messageBodyElement = el} />
-              </div>
-              <button type="submit">Submit</button>
+              </div>*/}
+              <button className="btn" type="submit">Submit</button>
             </form>
-            <p>QRCode. Scan to visit this page</p>
-            <QRCode value={window.location.href}/>
+            </div>
+            </div>
+            {/*<p>QRCode. Scan to visit this page</p>
+            <QRCode value={window.location.href}/>*/}
           </div>
         }
-      </div>
+        <footer className="footer text-center"><span>© Copyright <span id="copyright"></span> Material</span></footer>
+      </div> 
     )
   }
 }
