@@ -79,19 +79,21 @@ export default class Login extends Component {
       <div className="mdl-grid">
         <div className="mdl-card mdl-shadow--8dp" style={cardStyle}>
           {isSignup ?
-            (<div className="mdl-layout-title" style={titleStyle}>Sign Up</div>) :
-            (<div className="mdl-layout-title" style={titleStyle}>Login</div>)
+            (<div className="login-title" style={titleStyle}>Sign Up</div>) :
+            (<div className="login-title" style={titleStyle}>Login</div>)
           }
 
           {!isSignup &&
             <form onSubmit={this.handleLoginSubmit} style={formStyle}>
-              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <div className="login-pe">
+                <label className="login-text" htmlFor="email">Email: &nbsp; &nbsp;</label>
                 <input className="mdl-textfield__input" name="email" type="email" ref={el => this.emailElement = el}/>
-                <label className="mdl-textfield__label" htmlFor="email">Email: </label>
+                
               </div>
-              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <div className="login-pe">
+                <label className="login-text" htmlFor="password">Password: &nbsp; &nbsp; </label>
                 <input className="mdl-textfield__input" name="password" type="password" ref={el => this.passwordElement = el}/>
-                <label className="mdl-textfield__label" htmlFor="password">Password: </label>
+                
               </div>
                 <button className="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-400" style={buttonStyle} type="submit">Submit</button>
             </form>
@@ -99,39 +101,39 @@ export default class Login extends Component {
 
           {isSignup &&
             <form onSubmit={this.handleSignupSubmit}>
-              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label className="mdl-textfield__label" htmlFor="username">Username: </label>
+              <div className="login-pe">
+                <label className="login-text" htmlFor="username">Username: </label>
                 <input className="mdl-textfield__input" name="username" type="text" ref={el => this.newUsernameElement = el}/>
               </div>
-              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label className="mdl-textfield__label" htmlFor="email">Email: </label>
+              <div className="login-pe">
+                <label className="login-text" htmlFor="email">Email: </label>
                 <input className="mdl-textfield__input" name="email" type="email" ref={el => this.newEmailElement = el}/>
               </div>
-              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label className="mdl-textfield__label" htmlFor="password">Password: </label>
+              <div className="login-pe">
+                <label className="login-text" htmlFor="password">Password: </label>
                 <input className="mdl-textfield__input" name="password" type="password" ref={el => this.newPasswordElement = el}/>
               </div>
-              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label className="mdl-textfield__label" htmlFor="realName">Actual name: </label>
+              <div className="login-pe">
+                <label className="login-text" htmlFor="realName">Actual name: </label>
                 <input className="mdl-textfield__input" name="realName" type="text" ref={el => this.newRealNameElement = el}/>
               </div>
-              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label className="mdl-textfield__label" htmlFor="customUrl">Custom URL: </label>
+              <div className="login-pe">
+                <label className="login-text" htmlFor="customUrl">Custom URL: </label>
                 <input className="mdl-textfield__input" name="customUrl" type="text" ref={el => this.newURLElement = el}/>
               </div>
-              <button className="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-400" type="submit" style={buttonStyle}>Submit</button>
+              <button className="login-submit" type="submit" style={buttonStyle}>Submit</button>
             </form>
           }
 
           <div>
             {isSignup &&
               <div>
-                <button className="mdl-button mdl-js-button mdl-color--cyan-400  mdl-shadow--8dp" onClick={this.setLogin} style={buttonStyle}>Login</button>
+                <button className="login-button1" onClick={this.setLogin} style={buttonStyle}>Login</button>
               </div>
             }
             {!isSignup &&
               <div>
-                <button className="mdl-button mdl-js-button mdl-color--cyan-400  mdl-shadow--8dp" onClick={this.setSignup} style={buttonStyle}>Sign up</button>
+                <button className="login-button2" onClick={this.setSignup} style={buttonStyle}>Sign up</button>
               </div>
             }
           </div>

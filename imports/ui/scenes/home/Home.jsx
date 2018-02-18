@@ -62,21 +62,21 @@ export default class Home extends Component {
           <div className="row">
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center no-margin-top">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <div className="ibox-icon"><img className="opacity-mild" src="images/1-1.png" /></div>
                 <h3>Material UI Design</h3>
                 <p>Simple but effective UI/UX design</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center no-margin-top">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <div className="ibox-icon"><img className="opacity-mild" src="images/2-1.png" /></div>
                 <h3>Message Reroute</h3>
                 <p>Smooth, instant and effective connection</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center no-margin-top">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <div className="ibox-icon"><img className="opacity-mild" src="images/3-1.png" /></div>
                 <h3>Privacy Protection</h3>
                 <p>Substitute personal info with QR code</p>
               </div>
@@ -85,21 +85,21 @@ export default class Home extends Component {
           <div className="row">
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <div className="ibox-icon"><img className="opacity-mild" src="images/4-1.png" /></div>
                 <h3>Effective Communication</h3>
                 <p>Organized and targeted communication between users</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <div className="ibox-icon"><img className="opacity-mild" src="images/5-1.png" /></div>
                 <h3>Multiple Platform</h3>
                 <p>Communication includes email, facebook messenger, and text</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="icon-box ibox-plain ibox-center">
-                <div className="ibox-icon"><a href="javascript:;"><i className="material-icons">Tubiao</i></a></div>
+                <div className="ibox-icon"><img className="opacity-mild" src="images/6-1.png" /></div>
                 <h3>Efficient Contact Management</h3>
                 <p>Deeper understanding of the background of your contacts</p>
               </div>

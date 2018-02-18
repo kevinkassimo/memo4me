@@ -1,0 +1,38 @@
+.login-text{
+	color: #52BAD1
+}
+
+.login-pe{
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.login-title{
+	font-size: 20px;
+	font-weight: bold;
+	opacity: 0.75;
+	margin-bottom: 10px;
+}
+
+.login-button1{
+	position: relative;
+	top: -34px;
+}
+
+.login-button2{
+	position: relative;
+	top: -44px;
+}
+
+.mdl-grid button{
+	outline: none;
+	border: none;
+	color: white;
+	background-color: #52BAD1;
+	width: 70px;
+	height: 35px;
+}
+
+.mdl-grid button:hover{
+	background-color: #459cad;
+}
