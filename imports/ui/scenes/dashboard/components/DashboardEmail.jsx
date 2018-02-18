@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { DropdownButton, MenuItem } from 'react-bootstrap';
 
 import ContactType from '../../../../constants/contact-types';
 
@@ -16,12 +17,12 @@ function DashBoardEntry(props) {
 
   return <div>
     <span className={"emailEntryText" + (!enabled ? " emailEntryDisabled" : "") } > { content }  </span>
-    <span className="emailEntryType"> { typeInfo } </span>
+    {/*<span className="emailEntryType"> { typeInfo } </span>*/}
     <span>
-        <button onClick={handleToggle}> {enabled? "Disable" : "Enable"} </button>
+        <button className="contentBtn emailtoggle" onClick={handleToggle}> {enabled? "Disable" : "Enable"} </button>
     </span>
     <span>
-        <button onClick={handleRemove}> Remove </button>
+        <button className="contentBtn emailtoggle remove" onClick={handleRemove}> Remove </button>
     </span>
   </div>;
 }
@@ -51,33 +52,45 @@ export default class DashboardEmail extends Component {
     this.setState({type: e.target.value});
   }
 
+  onDropdownChange = (eventKey) => {
+    this.setState({type: eventKey});
+  }
+
   render() {
     const listItems =  this.props.contacts.map(
       (contact) => {
         const content = getContent(contact);
-        return <li key={content}> <DashBoardEntry contact={contact}
+        return <li key={content}>  <DashBoardEntry contact={contact}
                                                   handleToggle={this.handleToggle}
                                                   handleRemove={this.handleRemove}
         /> </li>
       } );
 
     const ret =
-      <div>
+      <div className="contentItem">
         <h3>Add Contact </h3>
 
         <ul>
           {listItems}
         </ul>
+        {/*<DropdownButton bsStyle="default" title="Choose Type" id="select-contact-type">
+          <MenuItem eventKey={ContactType.EMAIL} onSelect={this.onDropdownChange} active>Email</MenuItem>
+          <MenuItem eventKey={ContactType.TEXT} onSelect={this.onDropdownChange}>Text</MenuItem>
+        </DropdownButton>*/}
 
-        <input type="text" name="text" value={this.state.value}
+        <input className="contact-input" type="text" name="text" value={this.state.value}
                onChange={ (e) => this.setState({value: e.target.value})} />
 
-        <select onChange={this.onChange}> 
-          <option value={ContactType.EMAIL}>Email</option>
-          <option value={ContactType.TEXT}> Text</option>
-        </select>
+        <div className="select-style">
+          <select onChange={this.onChange}> 
+            <option value={ContactType.EMAIL}>Email</option>
+            <option value={ContactType.TEXT}> Text</option>
+          </select>
+        </div>
 
-        <button onClick={this.handleAdd.bind(this)}> Add Contact </button>
+        <div className="clear">
+        <button className="contentBtn submitBtn" onClick={this.handleAdd.bind(this)}> Add </button>
+        </div>
       </div>;
     return ret;
   }

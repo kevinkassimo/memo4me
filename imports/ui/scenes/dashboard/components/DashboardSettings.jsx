@@ -135,12 +135,12 @@ export default class DashboardSettings extends Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="contentItem">
         <h3>Update Image</h3>
         <form onSubmit={this.handleUploadAvatar}>
           <input disabled={isAvatarUploading} id="fileInput" type="file" ref={el => this.avatarInput = el} />
-          <p><small>Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB</small></p>
-          <button disabled={isAvatarUploading} type="submit">Submit</button>
+          <p className="grey">Upload file in <code>jpeg</code> or <code>png</code> format, with size less or equal to 10MB</p>
+          <button className="contentBtn submitBtn" disabled={isAvatarUploading} type="submit">Submit</button>
         </form>
       </div>
     );
@@ -154,24 +154,46 @@ export default class DashboardSettings extends Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="contentItem paperi">
         <h3>Profile Settings</h3>
         <form onSubmit={this.handleUpdateProfile}>
-          <div>
+          {/*<div>
             <label htmlFor="name">Name: </label>
             <input type="text" value={name} onChange={e => this.setState({ name: e.target.value })}/>
+          </div>*/}
+
+          <div className="group">     
+              <input type="text" value={name} onChange={e => this.setState({ name: e.target.value })}/>
+              <span className="highlight"></span>
+              <span className="bari"></span>
+              <label htmlFor="name">Name:</label>
           </div>
-          <div>
+
+          <div className="group">      
+                <textarea name="bio" cols="30" rows="10" value={bio} onChange={e => this.setState({ bio: e.target.value })}/>
+                <span className="highlight"></span>
+                <span className="bari"></span>
+                <label htmlFor="bio">Bio:</label>
+          </div>
+
+          <div className="group">     
+              <input type="text" value={customUrl} onChange={e => this.setState({ customUrl: e.target.value })}/>
+              <span className="highlight"></span>
+              <span className="bari"></span>
+              <label htmlFor="customUrl">Custom URL: </label>
+          </div>
+
+          {/*<div>
             <label htmlFor="bio">Bio: </label>
             <textarea name="bio" cols="30" rows="10" value={bio} onChange={e => this.setState({ bio: e.target.value })} />
           </div>
           <div>
             <label htmlFor="customUrl">Custom URL: </label>
             <input type="text" value={customUrl} onChange={e => this.setState({ customUrl: e.target.value })}/>
-          </div>
-          <button type="submit">Update</button>
+          </div>*/}
+          <button className="contentBtn submitBtn" type="submit">Update</button>
         </form>
-        <p>Generated URL QR Code, scan to visit your page</p>
+        <p id="bottom-text">Generated URL QR Code, scan to visit your page</p>
         <QRCode value={`${window.location.host}/user/${customUrl}`}/>
       </div>
     )

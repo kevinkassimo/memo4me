@@ -116,12 +116,12 @@ export default class Userpage extends Component {
         {!hasUser &&
           <h1>Ooops, this URL does not match any of our users...</h1>
         }
-        {/*this.state.avatarSrc*/}
+        
         { profile &&
           <div>
             <div className="main-content">
               <div className="hero profile" id="hero">
-                <img src= "https://t3.ftcdn.net/jpg/00/64/67/80/240_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"  alt="User-Image"/>
+                <img src={this.state.avatarSrc || 'https://t3.ftcdn.net/jpg/00/64/67/80/240_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg'}  alt="User-Image"/>
                 <h2>Greetings, this is {profile.name}!</h2>
                 <p>{profile.bio}</p>
               </div>
@@ -159,8 +159,8 @@ export default class Userpage extends Component {
             </form>
             </div>
             </div>
-            {/*<p>QRCode. Scan to visit this page</p>
-            <QRCode value={window.location.href}/>*/}
+            <p>QRCode. Scan to visit this page</p>
+            <QRCode value={window.location.href}/>
           </div>
         }
         <footer className="footer text-center"><span>© Copyright <span id="copyright"></span> Material</span></footer>

@@ -15,7 +15,7 @@ export default class DashboardHistory extends Component {
 
     return messages.map((msg, i) => {
       return (
-        <div key={`msg-${i}`}>
+        <div key={`msg-${i}`} className="msgEntry">
           <p>From: {msg.from || 'Unknown Sender'}</p>
           <p>At {new Date(msg.date).toLocaleString()}</p>
           <p>{msg.body}</p>
