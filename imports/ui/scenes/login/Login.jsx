@@ -57,68 +57,87 @@ export default class Login extends Component {
       isSignup,
     } = this.state;
 
+    var cardStyle = {
+      margin: 'auto',
+      marginTop: '20%',
+      alignItems: 'center'
+    }
+
+    var titleStyle = {
+      marginTop: '10%'
+    }
+
+    var buttonStyle = {
+      margin: 'auto !important'
+    }
+
+    var formStyle = {
+      padding: '10px'
+    }
+
     return (
-      <div>
-        {isSignup ?
-          (<div>Sign Up</div>) :
-          (<div>Login</div>)
-        }
-
-        {!isSignup &&
-          <form onSubmit={this.handleLoginSubmit}>
-            <div>
-              <label htmlFor="email">Email: </label>
-              <input name="email" type="email" ref={el => this.emailElement = el}/>
-            </div>
-            <div>
-              <label htmlFor="password">Password: </label>
-              <input name="password" type="password" ref={el => this.passwordElement = el}/>
-            </div>
-            <button type="submit">Submit!</button>
-          </form>
-        }
-
-        {isSignup &&
-          <form onSubmit={this.handleSignupSubmit}>
-            <div>
-              <label htmlFor="username">Username: </label>
-              <input name="username" type="text" ref={el => this.newUsernameElement = el}/>
-            </div>
-            <div>
-              <label htmlFor="email">Email: </label>
-              <input name="email" type="email" ref={el => this.newEmailElement = el}/>
-            </div>
-            <div>
-              <label htmlFor="password">Password: </label>
-              <input name="password" type="password" ref={el => this.newPasswordElement = el}/>
-            </div>
-            <div>
-              <label htmlFor="realName">Actual name: </label>
-              <input name="realName" type="text" ref={el => this.newRealNameElement = el}/>
-            </div>
-            <div>
-              <label htmlFor="customUrl">Custom URL: </label>
-              <input name="customUrl" type="text" ref={el => this.newURLElement = el}/>
-            </div>
-            <button type="submit">Submit!</button>
-          </form>
-        }
-
-        <div>
-          {isSignup &&
-            <div>
-              <p>Already have an account?</p>
-              <button onClick={this.setLogin}>LOGIN!</button>
-            </div>
+      <div className="mdl-grid">
+        <div className="mdl-card mdl-shadow--8dp" style={cardStyle}>
+          {isSignup ?
+            (<div className="mdl-layout-title" style={titleStyle}>Sign Up</div>) :
+            (<div className="mdl-layout-title" style={titleStyle}>Login</div>)
           }
+
           {!isSignup &&
-            <div>
-              <p>Not yet registered?</p>
-              <button onClick={this.setSignup}>SIGN UP!</button>
-            </div>
+            <form onSubmit={this.handleLoginSubmit} style={formStyle}>
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input className="mdl-textfield__input" name="email" type="email" ref={el => this.emailElement = el}/>
+                <label className="mdl-textfield__label" htmlFor="email">Email: </label>
+              </div>
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input className="mdl-textfield__input" name="password" type="password" ref={el => this.passwordElement = el}/>
+                <label className="mdl-textfield__label" htmlFor="password">Password: </label>
+              </div>
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-400" style={buttonStyle} type="submit">Submit</button>
+            </form>
           }
+
+          {isSignup &&
+            <form onSubmit={this.handleSignupSubmit}>
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <label className="mdl-textfield__label" htmlFor="username">Username: </label>
+                <input className="mdl-textfield__input" name="username" type="text" ref={el => this.newUsernameElement = el}/>
+              </div>
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <label className="mdl-textfield__label" htmlFor="email">Email: </label>
+                <input className="mdl-textfield__input" name="email" type="email" ref={el => this.newEmailElement = el}/>
+              </div>
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <label className="mdl-textfield__label" htmlFor="password">Password: </label>
+                <input className="mdl-textfield__input" name="password" type="password" ref={el => this.newPasswordElement = el}/>
+              </div>
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <label className="mdl-textfield__label" htmlFor="realName">Actual name: </label>
+                <input className="mdl-textfield__input" name="realName" type="text" ref={el => this.newRealNameElement = el}/>
+              </div>
+              <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <label className="mdl-textfield__label" htmlFor="customUrl">Custom URL: </label>
+                <input className="mdl-textfield__input" name="customUrl" type="text" ref={el => this.newURLElement = el}/>
+              </div>
+              <button className="mdl-button mdl-js-button mdl-button--raised mdl-color--cyan-400" type="submit" style={buttonStyle}>Submit</button>
+            </form>
+          }
+
+          <div>
+            {isSignup &&
+              <div>
+                <button className="mdl-button mdl-js-button mdl-color--cyan-400  mdl-shadow--8dp" onClick={this.setLogin} style={buttonStyle}>Login</button>
+              </div>
+            }
+            {!isSignup &&
+              <div>
+                <button className="mdl-button mdl-js-button mdl-color--cyan-400  mdl-shadow--8dp" onClick={this.setSignup} style={buttonStyle}>Sign up</button>
+              </div>
+            }
+          </div>
         </div>
       </div>
+
     )
   }
 }
