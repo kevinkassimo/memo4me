@@ -13,3 +13,7 @@ Textbelt, Sparkpost
 2.	Meteor database management: need to figure out how to design the database structure to store user data 
 3.	Styling: finish styling for multiple pages under limited time constraint 
 4.	Invalid input handling: need to implement exceptions for invalid user input
+
+## What we learned
+
+In this hackathon, we learned the entire development cycle of website, including front-end development and back-end development. Though during the process we encountered a lot of problems, I managed to solve most of them by searching on google or reading the doc. In the end, we successfully built a prototype for our website Memo 4 Me. 
