@@ -31,7 +31,7 @@ export const EmailContactMetadataSchema = new SimpleSchema({
 });
 
 export const TextContactMetadataSchema = new SimpleSchema({
-  number: String
+  address: String
 });
 
 export const MessageSchema = new SimpleSchema({

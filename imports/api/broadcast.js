@@ -5,6 +5,7 @@ import { check } from 'meteor/check';
 import ContactType from '../constants/contact-types';
 
 import { sendEmail } from './sparkpost/sparkpost';
+import { sendText } from './textbelt/textbelt';
 
 // This should be used under 'try {} catch (e) {}'
 export const serverBroadcast = function serverBroadcast(userId, body = '', from = '') {
@@ -29,6 +30,15 @@ export const serverBroadcast = function serverBroadcast(userId, body = '', from 
   } catch (e) {
     throw e;
     // throw new Meteor.Error(`Broadcast email for ${userId} failed`);
+  }
+
+  try {
+    const textContacts = targetUser.profile.contacts.filter(contact => contact.type === ContactType.TEXT && contact.enabled);
+    if (textContacts && textContacts.length > 0) {
+      serverBroadcastText(textContacts, body, from);
+    }
+  } catch (e) {
+    throw e;
   }
 };
 
@@ -56,6 +66,13 @@ const serverBroadcastEmail = function serverBroadcastEmail(emailContacts, body =
           throw new Meteor.Error(err)
         }
       });
+  }
+};
+
+const serverBroadcastText = function serverBroadcastText(textContacts, body = '', from = '') {
+  const numbers = textContacts.map(contact => contact.metadata.address);
+  for (let number of numbers) {
+    sendText(number, body, from);
   }
 };
 
