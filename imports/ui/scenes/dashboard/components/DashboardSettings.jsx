@@ -29,45 +29,33 @@ export default class DashboardSettings extends Component {
      */
   }
 
-  handleAddContact = e => {
-    e.preventDefault();
-
-    Meteor.call('email.add', this.newEmailElement.value, (err) => {
+  handleSubmitContact = (value, type) => {
+    Meteor.call('contact.add', value, type, (err) => {
       if (err) {
         alert(err);
         return;
       }
-      alert('New email added');
-    })
-  };
-
-  handleSubmitContact = value => {
-    Meteor.call('email.add', value, (err) => {
-      if (err) {
-        alert(err);
-        return;
-      }
-      alert('New email added');
+      alert('New contact of type ' + type + ' added');
     })
   };
 
   handleRemoveContact = value => {
-    Meteor.call('email.remove', value, (err) => {
+    Meteor.call('contact.remove', value, (err) => {
       if (err) {
         alert(err);
         return;
       }
-      alert('Email ' + value + ' removed');
+      alert('Contact ' + value + ' removed');
     })
   };
 
   handleToggleContact = (value, enable) => {
-    Meteor.call('email.setEnabled', value, enable, (err) => {
+    Meteor.call('contact.setEnabled', value, enable, (err) => {
       if (err) {
         alert(err);
         return;
       }
-      alert('Email ' + value + ' set to ' + (enable ? 'enabled ' : 'disabled'));
+      alert('Contact ' + value + ' set to ' + (enable ? 'enabled ' : 'disabled'));
     })
   };
 
