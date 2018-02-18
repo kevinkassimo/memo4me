@@ -138,10 +138,7 @@ export default class Home extends Component {
         </div>
       </div>
       <div className="action-call text-center"><span className="scrollreveal">Getting started is easy. Be up and running in minutes.</span><a className="btn btn-default btn-cta btn-lg btn-raised ui-wave scrollreveal" href="#" onClick={this.handleLogin}>Login now</a></div>
-      <footer className="footer text-center"><span>© Copyright <span id="copyright"></span> Material</span></footer>
-        Home works!
-        <button className="home-button" onClick={this.handleTest}>Click me</button>
-        {/*<button onClick={this.handleLogin}>Login</button>*/}
+      <footer className="footer text-center"><span>© Copyright <span id="copyright" /> Memo4Me</span></footer>
       </div>
     )
   }

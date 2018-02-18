@@ -159,8 +159,10 @@ export default class Userpage extends Component {
             </form>
             </div>
             </div>
-            <p>QRCode. Scan to visit this page</p>
-            <QRCode value={window.location.href}/>
+            <div className="up-qrcode">
+              <p className="up-qrcode__title">Share the QR Code below linking to this page</p>
+              <QRCode className="up-qrcode__code" value={window.location.href}/>
+            </div>
           </div>
         }
         <footer className="footer text-center"><span>© Copyright <span id="copyright"></span> Material</span></footer>
