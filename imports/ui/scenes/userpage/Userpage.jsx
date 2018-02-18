@@ -165,7 +165,7 @@ export default class Userpage extends Component {
             </div>
           </div>
         }
-        <footer className="footer text-center"><span>© Copyright <span id="copyright"></span> Material</span></footer>
+        <footer className="footer text-center"><span>© Copyright <span id="copyright"></span> Memo4Me</span></footer>
       </div> 
     )
   }

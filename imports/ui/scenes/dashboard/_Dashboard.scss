@@ -40,6 +40,21 @@
 .msgEntry{
     background-color: white;
     margin: 20px;
+
+  padding: 1.3em;
+
+  &__from {
+    font-size: 1.3em;
+  }
+
+  &__when {
+    font-size: 1em;
+    border-bottom: 2px solid gray;
+  }
+
+  &__body {
+    font-size: 1.2em;
+  }
 }
 
 .selectedButton{
