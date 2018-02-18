@@ -1,0 +1,27 @@
+.navBar {
+    width: 100%;
+    background-color: #353C43;
+    height: 50px;
+}
+
+.navBarItem {
+    display: inline-block;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #353C43;
+    margin: 10px;
+}
+
+#logout {
+    float: right;
+}
+
+.content {
+    padding: 30px;
+}
+
+.emailEntryDisabled{
+    text-decoration: line-through;
+    color: #999;
+}

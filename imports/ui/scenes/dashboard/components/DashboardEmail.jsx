@@ -15,14 +15,14 @@ function DashBoardEntry(props) {
   const handleRemove = () => props.handleRemove(content);
 
   return <div>
-    <span className={"emailEntryText" + !enabled ? " emailEntryDisabled" : ""} > { content }  </span>
+    <span className={"emailEntryText" + (!enabled ? " emailEntryDisabled" : "") } > { content }  </span>
     <span className="emailEntryType"> { typeInfo } </span>
     <span>
-            <button onClick={handleToggle}> {enabled? "Disable" : "Enable"} </button>
-        </span>
+        <button onClick={handleToggle}> {enabled? "Disable" : "Enable"} </button>
+    </span>
     <span>
-            <button onClick={handleRemove}> Remove </button>
-        </span>
+        <button onClick={handleRemove}> Remove </button>
+    </span>
   </div>;
 }
 
